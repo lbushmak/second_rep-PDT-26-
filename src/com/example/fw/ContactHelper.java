@@ -31,4 +31,24 @@ public class ContactHelper extends HelperBase {
 		type(By.name("phone2"), contact.phone2);
 	}
 
+	public void deleteContact(int row, int col) {
+		selectContactByIndex(row, col);
+		click(By.name("update"));
+
+	}
+
+	private void selectContactByIndex(int row, int col) {
+		click(By.xpath("//*[@id='maintable']//tr[" + row + "]//td[" + col + "]"));
+		// + "[" + index + "]"));
+	}
+
+	public void initContactModification(int row, int col) {
+		selectContactByIndex(row, col);
+	}
+
+	public void submitContactModification() {
+		click(By.name("update"));
+
+	}
+
 }
